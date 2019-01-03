@@ -1,0 +1,105 @@
+@font-face {
+  font-family: PokeFont;
+  src: url(../fonts/Pocket_Monk.otf);
+  src: url(../fonts/Pocket_Monk.woff);
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: PokeFont;
+  transition: .25s ease-in-out all;
+  transition-delay: 50ms;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  background-color: red;
+}
+
+header {
+  background-color: tomato;
+  margin-bottom: 3.5rem;
+  margin-top: -42px;
+}
+
+header > h1 {
+  height: 10rem;
+  padding: 2.5rem 0;
+  font-size: 5rem;
+  letter-spacing: 5px;
+}
+
+section {
+  width: 83.333%;
+  margin: 0 auto;
+  margin-top: 2rem;
+}
+
+section  > ul {
+  width: 100%;
+  display: flex;
+  flex-flow: row wrap;
+  list-style-type: none;
+}
+
+ul > li {
+  background-color: white;
+  margin: 0 0 2.703em 2.703em !important;;
+  border-radius: 10px;
+  box-shadow: 0 0 7px 2px darkslategray;
+  transform: scale(1.25);
+}
+
+ul > li > p {
+  letter-spacing: 1px;
+  font-weight: 300;
+  font-size: 12px;
+  padding: 0 !important;
+}
+
+ul > li:hover {
+  transform: scale(1.66);
+  cursor: pointer;
+  box-shadow: 0 3px 7px darkslategray;
+  z-index: 99;
+}
+
+ul > li:active {
+  background-color: darkslategray;
+  color: whitesmoke;
+}
+
+ul > li > div {
+  padding: 6px !important;
+}
+
+ul > li > div > img.card-back {
+  position: absolute;
+  width: 100%;
+  z-index: 0;
+  left: 0;
+  top: 0;
+  opacity: .5;
+  transform: scale(1.092);
+}
+
+ul > li > div > span,
+ul > li > div > span > i {
+  font-size: 10px !important;
+  letter-spacing: 1px;
+  display: inline-flex;
+  z-index: 99;
+}
+
+ul > li > div > span > i {
+  margin-left: 18px;
+}
+
+ul > li > div > p {
+  font-size: 7px !important;
+  color: whitesmoke;
+  font-family: verdana
+}
