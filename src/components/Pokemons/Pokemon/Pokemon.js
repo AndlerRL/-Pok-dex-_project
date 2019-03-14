@@ -1,6 +1,6 @@
 import React from 'react';
 
-import Icons from '../UI/Icons/Icons';
+import Icons from '../../UI/Icons/Icons';
 import css from './Pokemon.css';
 
 const pokemon = props => (
@@ -27,9 +27,10 @@ const pokemon = props => (
         className="card-back" 
         src={props.backImg}
         alt="Pokemon_back" />
-      <p>Version: {props.versionGrp}</p>
+      <p>Weight: {props.weight}kg</p>
     </div>
   </li>
-);
+)
+
 
 export default pokemon;

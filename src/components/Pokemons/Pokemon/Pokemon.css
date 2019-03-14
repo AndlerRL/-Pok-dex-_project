@@ -1,35 +1,36 @@
- .Pokemon {
+.Pokemon {
   background-color: white;
-  margin: 0 0 2.703em 2.703em !important;;
+  margin: 0 0 2.703em 2.703em !important;
+  ;
   border-radius: 10px;
   box-shadow: 0 0 7px 2px darkslategray;
   transform: scale(1.25);
 }
 
- .Pokemon > p {
+.Pokemon>p {
   letter-spacing: 1px;
   font-weight: 300;
   font-size: 12px;
   padding: 0 !important;
 }
 
- .Pokemon:hover {
+.Pokemon:hover {
   transform: scale(1.66);
   cursor: pointer;
   box-shadow: 0 3px 7px darkslategray;
   z-index: 99;
 }
 
- .Pokemon:active {
+.Pokemon:active {
   background-color: darkslategray;
   color: whitesmoke;
 }
 
- .Pokemon > div {
+.Pokemon>div {
   padding: 6px !important;
 }
 
- .Pokemon > div > img.card-back {
+.Pokemon>div>img.card-back {
   position: absolute;
   width: 100%;
   z-index: 0;
@@ -39,19 +40,19 @@
   transform: scale(1.092);
 }
 
- .Pokemon > div > span,
- .Pokemon > div > span > i {
+.Pokemon>div>span,
+.Pokemon>div>span>i {
   font-size: 10px !important;
   letter-spacing: 1px;
   display: inline-flex;
   z-index: 99;
 }
 
- .Pokemon > div > span > i {
+.Pokemon>div>span>i {
   margin-left: 18px;
 }
 
- .Pokemon > div > p {
+.Pokemon>div>p {
   font-size: 7px !important;
   color: whitesmoke;
   font-family: verdana

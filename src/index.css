@@ -1,7 +1,7 @@
 @font-face {
-  font-family: PokeFont;
-  src: url(../fonts/Pocket_Monk.otf);
-  src: url(../fonts/Pocket_Monk.woff);
+  font-family: 'PokeFont';
+  src: url(./assets/fonts/Pocket_Monk.woff);
+  src: url(./assets/fonts/Pocket_Monk.otf);
 }
 
 * {
@@ -13,7 +13,7 @@
 body {
   margin: 0;
   padding: 0;
-  font-family: -apple-system, BlinkMacSystemFont, PokeFont,
+  font-family: -apple-system, BlinkMacSystemFont, 'PokeFont',
     "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
     sans-serif;
   -webkit-font-smoothing: antialiased;

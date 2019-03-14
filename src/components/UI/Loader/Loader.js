@@ -10,7 +10,7 @@ const loader = props => (
       cancel={props.isLoading}
       show={props.show} />
     <div 
-      className={css.Loading}
+      className={css.LdsRing}
       style={{
         display: props.show ? 'block' : 'none'
       }}>

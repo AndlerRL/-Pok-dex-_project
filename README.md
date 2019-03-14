@@ -1,5 +1,14 @@
 <h1>'Pokédex'_project</h1>
 
+<h5><code>v1.3.7a</code></h5>
+
+<p>Basic pokédex render has been made and some other changes, such:</p>
+
+<ul>
+<li>Paths & files has been re-structured to make more sense on the project.</li>
+<li>There is one Pokémon rendering, but only for UI reference.</li>
+</ul>
+
 <h5><code>v1.3.1b</code></h5>
 
 <p><strong>CSS Modules!</strong> I really like to use CSS Modules, so it has been added to the project and all files have already had that reference on the imports and code (of course).</p>

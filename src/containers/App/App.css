@@ -18,16 +18,3 @@ header > h1 {
   font-size: 5rem;
   letter-spacing: 5px;
 }
-
-section {
-  width: 83.333%;
-  margin: 0 auto;
-  margin-top: 2rem;
-}
-
-section  > ul {
-  width: 100%;
-  display: flex;
-  flex-flow: row wrap;
-  list-style-type: none;
-}
