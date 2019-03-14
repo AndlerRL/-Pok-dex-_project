@@ -1,0 +1,26 @@
+@font-face {
+  font-family: PokeFont;
+  src: url(../fonts/Pocket_Monk.otf);
+  src: url(../fonts/Pocket_Monk.woff);
+}
+
+* {
+  box-sizing: border-box;
+  transition: .25s ease-in-out all;
+  transition-delay: 50ms;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: -apple-system, BlinkMacSystemFont, PokeFont,
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
+}

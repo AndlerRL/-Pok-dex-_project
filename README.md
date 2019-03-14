@@ -1,8 +1,14 @@
 <h1>'Pokédex'_project</h1>
 
+<h5><code>v1.3.1a</code></h5>
+
+Decided to update this webApp with React 16.8.4, using AXIOS respectively for the gets of the Pokemon API.
+
+I started already to separate the whole project into differents files, paths and using a re-usable structure for this framework.
+
 <h5><code>v1.0.0</code><h5>
 
-A simple project that demostrate the use of Fetch API alone with ES6. This project execute a list of pokémons, exactly <code>500 species of pokémon</code> that has a card designed details section once you click on the pokémon img.
+A simple project that demostrate the use of Fetch API alone with ES6. This project execute a list of pokémons, exactly <code>100 species of pokémon</code> that has a card designed details section once you click on the pokémon img.
 
 <ol>
   <strong>There is also 2 details:</strong>

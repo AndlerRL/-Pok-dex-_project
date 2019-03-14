@@ -1,0 +1,33 @@
+.App {
+  text-align: center;
+}
+
+body {
+  background-color: red;
+}
+
+header {
+  background-color: tomato;
+  margin-bottom: 3.5rem;
+  margin-top: -42px;
+}
+
+header > h1 {
+  height: 10rem;
+  padding: 2.5rem 0;
+  font-size: 5rem;
+  letter-spacing: 5px;
+}
+
+section {
+  width: 83.333%;
+  margin: 0 auto;
+  margin-top: 2rem;
+}
+
+section  > ul {
+  width: 100%;
+  display: flex;
+  flex-flow: row wrap;
+  list-style-type: none;
+}
