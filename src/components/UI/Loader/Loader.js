@@ -1,24 +1,23 @@
 import React from 'react';
 
+import Pokeball from '../Img/Pokeball/Pokeball';
 import Aux from '../../../hoc/Aux/Aux';
-import Backdrop from '../Backdrop/Backdrop';
 import css from './Loader.css';
 
 const loader = props => (
   <Aux>
-    <Backdrop 
-      cancel={props.isLoading}
-      show={props.show} />
+    <div
+      className={css.Backdrop}
+      style={{
+        display: props.show ? 'initial' : 'none'
+      }}>
+    </div>
     <div 
       className={css.LdsRing}
       style={{
         display: props.show ? 'block' : 'none'
       }}>
-      <div>
-        <img
-          src="assets/img/pokeball.webp"
-          alt="pokeball_load" />
-      </div>
+      <Pokeball />
       <div></div>
       <div></div>
       <div></div>

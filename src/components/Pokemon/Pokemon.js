@@ -1,6 +1,6 @@
 import React from 'react';
 
-import Icons from '../../UI/Icons/Icons';
+import Icons from '../UI/Icons/Icons';
 import css from './Pokemon.css';
 
 const pokemon = props => (
@@ -16,6 +16,7 @@ const pokemon = props => (
       id="text" >
       {props.name}
     </p>
+    
     <div
       className="card-reveal blue-grey darken-4" >
       <span 

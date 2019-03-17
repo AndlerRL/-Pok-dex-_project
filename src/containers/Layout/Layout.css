@@ -1,0 +1,99 @@
+@font-face {
+  font-family: 'PokeFont';
+  src: url(../../assets/fonts/Pocket_Monk.woff);
+  src: url(../../assets/fonts/Pocket_Monk.otf);
+}
+
+header {
+  background-color: rgba(234, 75, 67, 1);
+  height: 72px;
+  padding: 0 16px;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-sizing: border-box;
+  z-index: 90;
+}
+
+header > h1 {
+  padding: 0;
+  margin: 0;
+  font-size: 3.8rem;
+  letter-spacing: 5px;
+  font-family: 'PokeFont';
+  width: auto;
+}
+
+.SearchBar {
+  display: inline-flex;
+  height: 100%;
+}
+
+.SearchBar img {
+  height: 60%;
+  margin-top: 1rem;
+}
+
+body {
+  background-color: rgba(56, 56, 56, 1);
+}
+
+.Section1 {
+  background-color: rgba(245, 245, 245, 1);
+  width: 100%;
+  height: 25rem;
+  margin: 112px auto 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-sizing: border-box;
+  left: 0;
+  font-size: 3rem;
+  font-family: 'PokeFont';
+}
+
+.Section1 img {
+  margin-top: -38px;
+  opacity: .3 !important;
+}
+
+.Section1 > p {
+  width: 700px;
+  letter-spacing: 2px;
+  text-align: center;
+  margin: 0 auto;
+  z-index: 1;
+}
+
+.Section2 {
+  background-color: rgba(245, 245, 245, 1);
+  width: 100%;
+  display: inline-flex;
+  flex-direction: column;
+  box-sizing: border-box;
+  justify-content: space-between;
+  top: 0;
+  left: 0;
+  height: 8rem;
+  margin: 0 auto;
+  border-top: 1px solid rgba(56, 56, 56, .33);
+}
+
+footer {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  background-color: rgba(234, 75, 67, 1);
+  width: 100%;
+  text-align: center;
+  color: rgba(245, 245, 245, 1);
+  z-index: 90;
+}
+
+footer > a {
+  color: rgba(56, 56, 56, 1) !important;
+}

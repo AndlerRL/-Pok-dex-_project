@@ -1,0 +1,49 @@
+.Search {
+  margin: 0 auto;
+  width: 280px !important;
+  height: 100%;
+  box-sizing: border-box;
+  display: inline-flex;
+  align-items: center;
+  vertical-align: middle;
+}
+
+.Search input {
+  padding: 0;
+  margin: 8px 0 0 !important;
+  font-size: 1rem !important;
+  height: 3rem;
+  border-bottom: 1px solid rgb(54, 54, 54) !important;
+  z-index: 90;
+}
+
+.Search input:focus {
+  padding: 0;
+  border-bottom: 1px solid rgb(54, 54, 54) !important;
+  box-shadow: 0 1px 0 0 rgba(54, 54, 54, .5) !important;
+}
+
+.Search label {
+  margin: 20px 0  0 !important;
+  vertical-align: middle;
+  z-index: 10;
+}
+
+.Search i {
+  display: inline-flex;
+  clear: both;
+  flex-wrap: wrap;
+  top: 0;
+  margin: 8px 0 0 -16px;
+  cursor: pointer;
+  opacity: .66;
+  vertical-align: middle;
+  align-items: center;
+  height: 100%;
+  z-index: 12;
+}
+
+.Search i:hover {
+  color: rgb(245, 245, 245);
+  opacity: .9;
+}

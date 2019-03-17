@@ -1,10 +1,19 @@
 .Pokemon {
   background-color: white;
   margin: 0 0 2.703em 2.703em !important;
-  ;
+  height: 120px;
+  width: 120px;
   border-radius: 10px;
   box-shadow: 0 0 7px 2px darkslategray;
   transform: scale(1.25);
+}
+
+.Pokemon>img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 120px;
+  width: 120px;
 }
 
 .Pokemon>p {
@@ -12,6 +21,13 @@
   font-weight: 300;
   font-size: 12px;
   padding: 0 !important;
+  display: flex;
+  bottom: -66.66%;
+  flex-direction: column;
+}
+
+.Pokemon>p::after {
+  display: none;
 }
 
 .Pokemon:hover {

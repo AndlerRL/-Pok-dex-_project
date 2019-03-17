@@ -1,8 +1,8 @@
 import Axios from 'axios';
 import React, { Component } from 'react';
 
-import Loader from '../UI/Loader/Loader';
-import Pokemon from './Pokemon/Pokemon';
+import Loader from '../../components/UI/Loader/Loader';
+import Pokemon from '../../components/Pokemon/Pokemon';
 
 import css from './Pokemons.css';
 
@@ -68,7 +68,8 @@ class Pokemons extends Component {
 
     return (
       <section>
-        
+        <Loader 
+          show={this.state.isLoading} />
         <ul>
           { pokemons }
         </ul>

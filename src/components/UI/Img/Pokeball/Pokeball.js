@@ -6,7 +6,7 @@ import css from './Pokeball.css';
 const pokeball = props => (
   <div
     className={css.Pokeball}
-    style={{height: props.height}}>
+    style={{height: props.height, width: props.width}}>
     <img src={pokeballImg} alt="Pokeball_img" />
   </div>
 );

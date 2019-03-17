@@ -1,5 +1,9 @@
 <h1>'Pokédex'_project</h1>
 
+<h5><code>v1.4.0</code></h5>
+
+<p>Made a mockup for the design and structure of this webapp. I decided to made a whole new UI/UX for the next version of my project. It has many areas, and, analytics (me, haha) is deciding if to add or remove some components/containers to the webapp. Right now it's just design and SOME interactions. Hope you like it.</p>
+
 <h5><code>v1.3.7a</code></h5>
 
 <p>Basic pokédex render has been made and some other changes, such:</p>
