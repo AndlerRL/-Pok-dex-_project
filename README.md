@@ -1,5 +1,13 @@
 <h1>'Pokédex'_project</h1>
 
+<h5><code>v1.4.5</code></h5>
+
+<p>there was a collission between the main content and Filters sections; it has been fixed.</p>
+
+<strong>Working on bugs:</strong>
+
+<p>There is an issue at the time to iterate all pokemons on the main section, but I'm fixing it through time to time, due nature complexibility of the Pokemon API.</p>
+
 <h5><code>v1.4.0</code></h5>
 
 <p>Made a mockup for the design and structure of this webapp. I decided to made a whole new UI/UX for the next version of my project. It has many areas, and, analytics (me, haha) is deciding if to add or remove some components/containers to the webapp. Right now it's just design and SOME interactions. Hope you like it.</p>

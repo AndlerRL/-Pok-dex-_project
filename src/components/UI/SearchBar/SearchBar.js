@@ -13,7 +13,7 @@ const searchBar = props => {
           onChange={props.searchP}
           type="text" />
         <label
-          for="searchP"
+          htmlFor="searchP"
           className="white-text">Search Pokémon</label>
         <Icons 
           icon="times"

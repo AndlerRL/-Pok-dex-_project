@@ -9,41 +9,40 @@ import css from './Pokemons.css';
 class Pokemons extends Component {
   state = {
     pokemons: [],
-    selectedPokemonId: null,
     error: false,
     errorMsg: null,
     isLoading: true
   }
 
   componentDidMount() {
-    Axios.get('pokemon/1')
-      .then(res => {
-        console.log(res.data);
-
-        const pokemons = [res.data];
-        const updatedPokemons = pokemons.map(pokemon => {
-          console.log(pokemon)
-
-          return {...pokemon}
+    Axios.get('pokemon/1', {
+      params: {
+        offset: 0,
+        limit: 20
+      }
+    }).then(res => {
+        const pokemons = Array(res.data);
+        const updatedData = pokemons.map((pokemon, index) => {
+          return {
+            name: pokemon.name,
+            frontImg: pokemon.sprites.front_default
+          }
         });
-
+        
+        console.log(updatedData);
         this.setState({
-          pokemons: updatedPokemons,
+          pokemons: updatedData,
           isLoading: false
-        });
-      })
-      .catch(err => {
-        this.setState({
-          error: true,
-          errorMsg: err.toString()
         })
-      });
-  }
 
-  pokemonSelectedHandler = id => {
-    this.setState({
-      selectedPokemonId: id
-    })
+        console.log(this.state.pokemons)
+      })
+    .catch(err => {
+      this.setState({
+        error: true,
+        errorMsg: err.toString()
+      })
+    });
   }
 
   render () {
@@ -58,16 +57,16 @@ class Pokemons extends Component {
       pokemons = this.state.pokemons.map(pokemon => {
         return (
           <Pokemon 
-            frontImg={pokemon.sprites.front_default}
-            backImg={pokemon.sprites.back_default}
+            frontImg={pokemon.frontImg}
             name={pokemon.name}
-            weight={pokemon.weight}
-            key={`__POKEMON__${Math.floor(Math.random() * 999) * pokemon.id }`} />
-        )
+            key={`POKEMON__${(Math.floor(Math.random(0) * 9999) * 3) / 2}__CARD`} />
+        );
       });
+      
+      
 
     return (
-      <section>
+      <section className={css.Pokemons}>
         <Loader 
           show={this.state.isLoading} />
         <ul>

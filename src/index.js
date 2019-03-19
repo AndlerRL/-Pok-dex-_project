@@ -6,11 +6,11 @@ import * as serviceWorker from './serviceWorker';
 import Axios from 'axios';
 
 Axios.defaults.baseURL = 'https://pokeapi.co/api/v2/';
-Axios.defaults.headers.common['Access-Control-Allow-Origin'] = 'https://pokeapi.co/api/v2/pokemon-form/';
+Axios.defaults.headers.common['Access-Control-Allow-Origin'] = 'https://pokeapi.co/api/v2/pokemon/';
 Axios.defaults.headers.post['Content-Type'] = 'application/json';
 
 Axios.interceptors.request.use(req => {
-  console.log('REQUEST', req, "\n \n");
+  //console.log('REQUEST', req, "\n \n");
 
   return req;
 }, err => {

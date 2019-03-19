@@ -6,9 +6,9 @@
 
 .Backdrop {
   width: 100vw;
-  min-height: 47vh;
+  min-height: 45vh;
   position: absolute;
-  margin-top: calc(0% - 28px);
+  margin-top: calc(0% - 72px);
   left: 0;
   background-color: rgba(23, 23, 23, .7);
   z-index: 1;
