@@ -1,21 +1,19 @@
 import React from 'react';
 
-import Icons from '../UI/Icons/Icons';
 import css from './Pokemon.css';
 
 const pokemon = props => (
   <li 
-    className={"card activator sticky-action " + css.Pokemon} >
-    <img
-      className="activator waves-effect waves-block waves-light"
-      src={props.frontImg}
-      alt="Pokemon_front" />
-    <p 
-      align="center"
-      className="card-action waves-effect waves-block waves-light"
-      id="text" >
+    className={"card sticky-action z-depth-2 " + css.Pokemon}
+    onClick={props.pokedex} >
+    <p
+      className="waves-effect waves-light">
       {props.name}
     </p>
+    <img
+      className="waves-effect waves-light"
+      src={props.frontImg}
+      alt="Pokemon_front" />
   </li>
 )
 

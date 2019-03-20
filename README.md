@@ -1,8 +1,18 @@
 <h1>'Pokédex'_project</h1>
 
+<h5><code>v1.5.0</code></h5>
+
+<p>Pokemon card UI has been changed and some rendering has been completed, such as the Modal with the pokedex and re-structured (again) the files within the project.</p>
+
+<p>At this moment I am working on the pokedex UI/UX and bugs; filters and search bar still pending.</p>
+
+<strong>Working on bugs:</strong>
+
+<p>There is clearly a list of pokemons but pokemons img are not appropiate to the pokemon card; working on it with the Axios.get() and rendering.</p>
+
 <h5><code>v1.4.5</code></h5>
 
-<p>there was a collission between the main content and Filters sections; it has been fixed.</p>
+<p>There was a collission between the main content and Filters sections; it has been fixed.</p>
 
 <strong>Working on bugs:</strong>
 

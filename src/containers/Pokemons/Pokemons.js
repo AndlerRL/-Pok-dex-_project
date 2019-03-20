@@ -3,39 +3,48 @@ import React, { Component } from 'react';
 
 import Loader from '../../components/UI/Loader/Loader';
 import Pokemon from '../../components/Pokemon/Pokemon';
+import Icons from '../../components/UI/Icons/Icons';
 
 import css from './Pokemons.css';
 
 class Pokemons extends Component {
   state = {
     pokemons: [],
+    pokemonsImg: [],
     error: false,
     errorMsg: null,
     isLoading: true
   }
 
   componentDidMount() {
-    Axios.get('pokemon/1', {
+    Axios.get('pokemon/', {
       params: {
         offset: 0,
         limit: 20
       }
     }).then(res => {
-        const pokemons = Array(res.data);
-        const updatedData = pokemons.map((pokemon, index) => {
-          return {
-            name: pokemon.name,
-            frontImg: pokemon.sprites.front_default
-          }
-        });
-        
-        console.log(updatedData);
+        const pokemons = res.data.results;
+
         this.setState({
-          pokemons: updatedData,
+          pokemons: pokemons,
           isLoading: false
         })
 
-        console.log(this.state.pokemons)
+        pokemons.map(async pokemon => {
+          const pokemonUrl = pokemon.url;
+          const res = await Axios.get(pokemonUrl);
+          const frontImg = res.data.sprites.front_default;
+          const imgArray = [];
+
+          imgArray.map(img => {
+            return img.push(frontImg);
+          })
+          console.log(imgArray);
+
+          this.setState({
+            pokemonsImg: frontImg
+          });
+        })
       })
     .catch(err => {
       this.setState({
@@ -44,12 +53,12 @@ class Pokemons extends Component {
       })
     });
   }
-
   render () {
     let pokemons = (
-      <div>
-        <p align="center">Something went wrong... Sorry :(</p>
-        <code align="center">{this.state.errorMsg}</code>
+      <div className={css.Error + ' z-depth-5'}>
+        <Icons icon="exclamation-triangle" size="small"/>
+        <p align="center"> Something went wrong... Sorry :(</p>
+        <code align="center">[Error] {this.state.errorMsg}</code>
       </div>
     );
 
@@ -57,13 +66,12 @@ class Pokemons extends Component {
       pokemons = this.state.pokemons.map(pokemon => {
         return (
           <Pokemon 
-            frontImg={pokemon.frontImg}
+            frontImg={this.state.pokemonsImg}
             name={pokemon.name}
-            key={`POKEMON__${(Math.floor(Math.random(0) * 9999) * 3) / 2}__CARD`} />
+            key={`POKEMON__${(Math.floor(Math.random(0) * 9999) * 4) / 2}__CARD`}
+            pokedex={this.props.pokedex} />
         );
       });
-      
-      
 
     return (
       <section className={css.Pokemons}>

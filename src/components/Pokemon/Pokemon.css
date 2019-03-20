@@ -1,29 +1,43 @@
 .Pokemon {
-  background-color: white;
-  margin: 0 0 2.703em 2.703em !important;
-  height: 120px;
-  width: 120px;
-  border-radius: 10px;
-  box-shadow: 0 0 7px 2px darkslategray;
-  transform: scale(1.25);
+  background-color: #bdbdbd;
+  margin: 1rem auto !important;
+  height: 200px;
+  width: 172px;
+  border-radius: 3px;
+  display: inline-flex;
+  box-sizing: border-box;
+  justify-content: space-between;
+  flex-direction: column;
+  cursor: pointer;
+  transition: all .33s cubic-bezier(0.165, 0.84, 0.44, 1);
 }
 
-.Pokemon>img {
+.Pokemon img {
   position: absolute;
   top: 0;
   left: 0;
-  height: 120px;
-  width: 120px;
+  margin: 0 auto;
+  border-radius: 3px;
+  border: 1px solid rgba(23, 23, 23, .5);
+  height: 160px;
+  width: 160px;
+  margin: 6px;
+  background-color: rgb(245, 245, 245);
 }
 
-.Pokemon>p {
+.Pokemon p {
+  width: 100%;
+  text-align: center;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  text-transform: capitalize;
   letter-spacing: 1px;
-  font-weight: 300;
-  font-size: 12px;
-  padding: 0 !important;
-  display: flex;
-  bottom: -66.66%;
-  flex-direction: column;
+  font-weight: 400;
+  font-size: 1rem;
+  padding: 10px;
+  height: 2.5rem;
+  margin: 0 auto;
 }
 
 .Pokemon>p::after {
@@ -31,9 +45,8 @@
 }
 
 .Pokemon:hover {
-  transform: scale(1.66);
-  cursor: pointer;
-  box-shadow: 0 3px 7px darkslategray;
+  transform: scale(1.05);
+  background-color: #9e9e9e;
   z-index: 99;
 }
 
@@ -44,32 +57,4 @@
 
 .Pokemon>div {
   padding: 6px !important;
-}
-
-.Pokemon>div>img.card-back {
-  position: absolute;
-  width: 100%;
-  z-index: 0;
-  left: 0;
-  top: 0;
-  opacity: .5;
-  transform: scale(1.092);
-}
-
-.Pokemon>div>span,
-.Pokemon>div>span>i {
-  font-size: 10px !important;
-  letter-spacing: 1px;
-  display: inline-flex;
-  z-index: 99;
-}
-
-.Pokemon>div>span>i {
-  margin-left: 18px;
-}
-
-.Pokemon>div>p {
-  font-size: 7px !important;
-  color: whitesmoke;
-  font-family: verdana
 }
