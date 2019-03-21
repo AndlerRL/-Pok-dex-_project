@@ -1,0 +1,22 @@
+.PokemonImg {
+  position: inherit;
+  top: 0;
+  left: 0;
+  margin: 0 auto;
+  border-radius: 3px;
+  border: 1px solid rgba(23, 23, 23, .5);
+  height: 160px;
+  width: 160px;
+  margin: 6px 6px;
+  background: url(../../../assets/img/pokeballBlur.png) rgb(245, 245, 245) no-repeat;
+  background-size: 135px 135px;
+  background-position: 10px 10px;
+}
+
+.Pokemon {
+  height: inherit;
+  margin: 0 auto;
+  width: 100%;
+  z-index: 10;
+  background-color: transparent;
+}

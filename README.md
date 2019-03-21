@@ -1,5 +1,12 @@
 <h1>'Pokédex'_project</h1>
 
+<h5><code>v1.5.12</code></h5>
+
+<p>UI design changes on Pokemon card; Colorful and more styled.</p>
+
+<strong>Working on bugs:</strong>
+<p>Sorting the list! I still have some bugs with the main pokemon list, still pokemon images does not render according the name on the card; working on it (Charizard disguise as Raticate, haha).</p>
+
 <h5><code>v1.5.0</code></h5>
 
 <p>Pokemon card UI has been changed and some rendering has been completed, such as the Modal with the pokedex and re-structured (again) the files within the project.</p>

@@ -1,6 +1,6 @@
 import React from 'react';
 
-import pokeballImg from '../../../../assets/img/pokeball.webp';
+import pokeballImg from '../../../../assets/img/pokeball.png';
 import css from './Pokeball.css';
 
 const pokeball = props => (

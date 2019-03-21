@@ -38,6 +38,9 @@ class App extends Component {
         </Modal>
         <Pokemons 
           pokedex={this.pokedexHandler} />
+        <footer>
+          <p> WebApp made with love and fun by <a target="_blank" rel="noopener noreferrer" href="http://andlerrl.co" className="black-text">AndlerRL</a>. 2019 ® All rights Reserved.</p>
+        </footer>
       </div>
     );
   }

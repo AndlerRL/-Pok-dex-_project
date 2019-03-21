@@ -25,9 +25,6 @@ class Layout extends Component {
           <PokeballPixel height="100%" width="100%" />
           <p>Can you lore them all? Search them by name or version group! You can click to see more details.</p>
         </section>
-        <footer>
-          <p> WebApp made with love and fun by <a target="_blank" rel="noopener noreferrer" href="http://andlerrl.co" className="black-text">AndlerRL</a>. 2019 ® All rights Reserved.</p>
-        </footer>
       </Aux>
     );
   }
