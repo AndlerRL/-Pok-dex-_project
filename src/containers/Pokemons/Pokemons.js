@@ -1,6 +1,7 @@
 import { createHash } from 'crypto';
 import Axios from 'axios';
 import React, { Component } from 'react';
+import _ from 'underscore';
 
 import Icons from '../../components/UI/Icons/Icons';
 import Loader from '../../components/UI/Loader/Loader';
@@ -23,39 +24,82 @@ class Pokemons extends Component {
         offset: 0,
         limit: 20
       }
-    }).then(res => {
-        const pokemons = res.data.results;
+    }).then(res1 => {
+        const pokemons = res1.data.results;
         const updatedPokemon = [...pokemons];
         const imgArray = [];
-        const idArray= [];
+        const idArray = [];
+        const version_grp = [];
 
         pokemons.map(async pokemon => {
           const pokemonUrl = pokemon.url;
-          const res = await Axios.get(pokemonUrl);
-          const id = res.data.id;
-          const frontImg = res.data.sprites.front_default;
+          const res2 = await Axios.get(pokemonUrl);
+          const id = res2.data.id;
+          const frontImg = res2.data.sprites.front_default;
 
           imgArray.push(frontImg);
           idArray.push(id);
 
-          const newImg = imgArray.map(img => img);
-          const newId = idArray.map(id => id);
+          let newImg = [];
+          let newId = [];
+          let sortedImg = [];
+
+          if (imgArray.length === 20) {
+            newImg = imgArray.map(img => img);
+
+            sortedImg = _.sortBy(newImg, img => {
+              let nums = img.split('/');
+              let sortedNums = parseInt([nums[8][0], nums[8][1]].join(''));
+              return sortedNums;
+            });
+          }
+
+          if(idArray.length === 20) {
+            newId = idArray.map(id => id).sort((a, z) => a - z);
+          }
+
+  //Here above there should be a way to sort the imgs by id or
+  //name accorded to his name, position and else... Just img are
+  //wrong... what can I do? That const above is from underscore.js
+  //library.
+
+  //There is something to take in consideration:
+  //While I asynchronously taking the id and frontImg, it doesn't
+  //load it properly at the same time, it iterates depending the size
+  //and internet velocity. IF I add a condition, due order prop &
+  //id prop are the same on the pokemon link, it iterates in order
+  //(sometimes, maybe 50/50) as it should, but only the first 3 cards
+  //& the rest remains undefined, also with id if I left it inside the
+  //consitional.
+  //
+  //The must be a way to have all loaded and later on order it. Maybe a
+  //conditional before executing the newImg and newId, instead directly
+  //to the push that I made for the Img/id array. Sort it by .sort() or
+  //_.sortBy() from underscore.js depending witch is better, or simplier
+  //I don't know. Maybe that could fix the issue.
+  //
+  //Other solution? It might be that, or looking that whould be the best
+  //approach for the solution. Logically, it's an condicional–don't have
+  //any. Remember to complete the version_grp array and styling the
+  //custom title as I have it on a screenshot of codepen.io, with a
+  //data-title attr.
+
         
           const newData = updatedPokemon.map((pokemon, index) => {
             return {
               name: pokemon.name,
               url: pokemon.url,
-              frontImg: newImg.sort((a, z) => a - z)[index],
-              id: newId.sort((a, z) => a - z)[index]
+              frontImg: sortedImg[index],
+              id: newId[index]
             };
           })
 
-          console.log(newData);
-
-          this.setState({
-            pokemons: newData,
-            isLoading: false
-          })
+          if (newData.length === 20) {
+            this.setState({
+              pokemons: newData,
+              isLoading: false
+            })
+          }
         })
       })
     .catch(err => {

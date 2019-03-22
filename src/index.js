@@ -20,7 +20,7 @@ Axios.interceptors.request.use(req => {
 });
 
 Axios.interceptors.response.use(res => {
-  console.log('RESPONSE', res, "\n \n");
+  //console.log('RESPONSE', res, "\n \n");
 
   return res;
 }, err => {
