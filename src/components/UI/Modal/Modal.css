@@ -1,11 +1,10 @@
 .Modal {
   position: fixed;
   z-index: 500;
-  background-color: #e0f2f1;
-  width: 99vw;
-  border: 2px solid #b2dfdb3a;
-  border-radius: 3px;
-  padding: 16px;
+  background-color: transparent;
+  width: 100vw;
+  border: 2px solid transparent;
+  padding: 0;
   left: .5vw;
   top: 20vh;
   box-sizing: border-box;
@@ -15,7 +14,7 @@
 
 @media (min-width: 600px) {
   .Modal {
-      width: 500px;
-      left: calc(50% - 250px);
+      width: 750px;
+      left: calc(50% - 350px);
   }
 }

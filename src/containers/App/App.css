@@ -28,6 +28,7 @@ footer {
   text-align: center;
   color: rgba(245, 245, 245, 1);
   z-index: 90;
+  padding: 16px;
 }
 
 footer > a {

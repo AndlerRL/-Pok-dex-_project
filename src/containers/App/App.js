@@ -39,7 +39,7 @@ class App extends Component {
         <Pokemons 
           pokedex={this.pokedexHandler} />
         <footer>
-          <p> WebApp made with love and fun by <a target="_blank" rel="noopener noreferrer" href="http://andlerrl.co" className="black-text">AndlerRL</a>. 2019 ® All rights Reserved.</p>
+          <p> WebApp made with love and fun by <a target="_blank" rel="noopener noreferrer" href="http://andlerrl.co" className="black-text">AndlerRL</a>. 2019 ® All rights Reserved. Pokémon and Pokémon character names are trademarks of Nintendo.</p>
         </footer>
       </div>
     );

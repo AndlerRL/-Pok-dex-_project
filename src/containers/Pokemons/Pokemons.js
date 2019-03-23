@@ -29,7 +29,6 @@ class Pokemons extends Component {
         const updatedPokemon = [...pokemons];
         const imgArray = [];
         const idArray = [];
-        const version_grp = [];
 
         pokemons.map(async pokemon => {
           const pokemonUrl = pokemon.url;

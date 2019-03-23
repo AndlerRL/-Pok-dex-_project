@@ -23,7 +23,7 @@ class Layout extends Component {
         </header>
         <section className={css.Section1}>
           <PokeballPixel height="100%" width="100%" />
-          <p>Can you lore them all? Search them by name or version group! You can click to see more details.</p>
+          <p>Can you lore them all? Search them by the PokéMon name! You can click to see the PokéDex.</p>
         </section>
       </Aux>
     );

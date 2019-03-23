@@ -8,7 +8,7 @@ const pokemon = props => {
     <li 
       className={"card sticky-action z-depth-2 " + css.Pokemon}
       onClick={props.pokedex}
-      id={props.id} >
+      id={props.id}>
       <PokemonImg
         frontImg={props.frontImg} />
       <p
