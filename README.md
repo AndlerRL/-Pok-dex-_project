@@ -2,7 +2,7 @@
 
 <h3><code>v1.7.0</code></h3>
 
-<p><strong>UI Bug fixed!</strong> Pokedex UI has been changed a bit in order to render well the pokémon info. All info has been positioned properly. Other minor UI fixes are done too.</p>
+<p><strong>UI Bug fixed!</strong> Pokedex UI has been changed a bit in order to render well the pokémon info. All info has been positioned properly. Other minor UI fixes are done too. License is updated now.</p>
 
 <hr/>
 <h3><code>v1.6.81</code></h3>
