@@ -1,7 +1,7 @@
 .Stats {
-  height: 130px;
-  width: 280px;
-  padding: 10px;
+  height: 150px;
+  width: 299px;
+  padding: 16px;
   background-color: #30da0c;
   z-index: 1;
   font-size: 13px;
@@ -11,8 +11,18 @@
   left: 25px;
   border-radius: 15px;
   box-shadow: 0 0 20px #003300 inset;
+  overflow-y: auto;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+.Stats li {
+  text-transform: capitalize;
 }
 
 .Stats span {
   font-weight: 600;
+}
+
+.Stats ul {
+  margin-bottom: 8px;
 }

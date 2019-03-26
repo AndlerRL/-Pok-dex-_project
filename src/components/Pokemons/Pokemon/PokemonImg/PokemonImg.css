@@ -10,7 +10,7 @@
   margin: 6px 6px;
   background: url(../../../../assets/img/pokeballBlur.png) rgb(245, 245, 245) no-repeat;
   background-size: 135px 135px;
-  background-position: 11.6px 12px;
+  background-position: 50% 50%;
 }
 
 .Pokemon {

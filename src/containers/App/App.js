@@ -79,7 +79,7 @@ class App extends Component {
             this.setState({
               isLoading: false
             })
-          }, 1550)
+          }, 1000)
         })
       })
     .catch(err => {
@@ -91,6 +91,10 @@ class App extends Component {
   }
 
   pokedexHandler = (e, id) => {
+    this.setState({
+      isLoading: true
+    });
+
     const pokemonIndex = this.state.pokemons.findIndex(p => {
       return p.id === id;
     })
@@ -114,7 +118,7 @@ class App extends Component {
         height: pokedex.height,
         weight: pokedex.weight,
         front_img: pokedex.sprites.front_default,
-        baseExp: pokedex.base_experience
+        base_exp: pokedex.base_experience
       }
 
       Axios.get(pokedex.species.url).then(res => {
@@ -146,7 +150,8 @@ class App extends Component {
         pokedexInfo.push(detailedInfo);
         this.setState({
           onPokedex: true,
-          pokedex: pokedexInfo
+          pokedex: pokedexInfo,
+          isLoading: false
         })
     
         //console.log(this.state.pokedex)
@@ -178,10 +183,15 @@ class App extends Component {
             name={pokedex.name}
             frontImg={pokedex.front_img}
             type={pokedex.type.join(', ')}
-            titleDesciption={pokedex.title_description}
+            descriptionTitle={pokedex.title_description}
             descriptionBody={pokedex.description}
             height={pokedex.height}
             weight={pokedex.weight}
+            eggGrp={pokedex.egg_grp.join(', ')}
+            habitat={pokedex.habitat}
+            evolvesFrom={pokedex.evolves_from}
+            baseExp={pokedex.base_exp}
+            generation={pokedex.generation}
             key={Math.floor(Math.random(0) * 999999)} />
         )
       })
@@ -202,26 +212,6 @@ class App extends Component {
           pokemons={this.state.pokemons}
           pokedex={this.pokedexHandler} />
       )
-
-    /**
-     * 
-     * Now, everything is correctly working as usual, now I need to 
-     * select the pokemon some solector handler, so the pokedex renders
-     * the stats of the selected pokedex (sorry, i'm redundant, hehe).
-     * 
-     * I can do a function handler where I can select the pokemon
-     * according the proper index selected on the list, and THIS thing
-     * I want to do, I have already did it with the training React App
-     * and also, I can thing of selecting the URL of the pokemon and
-     * later on getting the proper response. So, in resume:
-     * 
-     * Do a Axios.get() for the requested pokemon
-     * Do a function that handle the pokedex stats info of the pokemon
-     * Maybe do a map (not so sure of it) so I can iterate the exact pokemon
-     * Think, think and think! I'll do it. If someone else did it already,
-     * I can do it to, with the SPA structure ;)
-     * 
-     **/
 
     return ( 
       <div className={css.App}>

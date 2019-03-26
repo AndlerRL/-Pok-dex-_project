@@ -6,9 +6,9 @@
 
 .Backdrop {
   width: 100vw;
-  min-height: 100vh;
+  min-height: 150vh;
   position: absolute;
-  margin-top: calc(0% - 72px);
+  margin-top: 0;
   left: 0;
   background-color: rgba(23, 23, 23, .96);
   z-index: 99;
@@ -16,12 +16,12 @@
 
 .LdsRing {
   display: flex;
-  position: absolute;
+  position: fixed;
   vertical-align: middle;
   align-items: center;
   transform: scale(2.3);
-  margin-left: calc(50% - 125px);
-  margin-top: 12%;
+  margin-left: calc(50% - 75px);
+  margin-top: 16.666%;
   z-index: 99;
   cursor: not-allowed;
 }

@@ -63,9 +63,11 @@ const pokedex = props => (
     <div className={css.Right}>
       <PokedexData 
         name={props.name}
-        type={props.type} 
+        type={props.type}
+        eggGrp={props.eggGrp}
         height={props.height}
         weight={props.weight}
+        habitat={props.habitat}
         descriptionTitle={props.descriptionTitle}
         descriptionBody={props.descriptionBody} />
       <div className={css.blueBtns1}>
@@ -87,10 +89,9 @@ const pokedex = props => (
       <div className={css.barBtn3}></div>
       <div className={css.barBtn4}></div>
       <div className={css.yellowBox1}>
-        <p>Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet.</p>
-      </div>
-      <div className={css.yellowBox2}>
-        <p>Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet.</p>
+        <p><span>Generation :</span> {props.generation}</p>
+        <p><span>Evolves from :</span> {props.evolvesFrom}</p>
+        <p><span>Base Exp :</span> {props.baseExp}xp</p>
       </div>
       <div className={css.bgCurve1_right}></div>
       <div className={css.bgCurve2_right}></div>

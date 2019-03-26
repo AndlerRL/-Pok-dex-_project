@@ -4,12 +4,16 @@ import css from './PokedexData.css';
 
 const pokedexData = props => (
   <div className={css.Stats}>
-    <span>Name :</span> {props.name} <br/>
-    <span>Type :</span> {props.type} <br/>
-    <span>Height :</span> {props.height} <br/>
-    <span>Weight :</span> {props.weight} lbs.<br/>
+    <ul>
+      <li><span>Name :</span> {props.name}</li>
+      <li><span>Type :</span> {props.type}</li>
+      <li><span>Egg Group :</span> {props.eggGrp}</li>
+      <li><span>Height :</span> {props.height}''</li>
+      <li><span>Weight :</span> {props.weight} lbs.</li>
+      <li><span>Habitat :</span> {props.habitat}</li>
+    </ul>
     <span>{props.descriptionTitle}</span>
-    {props.descriptionBody} <br/>
+    <p>{props.descriptionBody}</p>
   </div>
 )
 
