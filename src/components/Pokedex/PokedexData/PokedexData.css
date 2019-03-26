@@ -1,0 +1,18 @@
+.Stats {
+  height: 130px;
+  width: 280px;
+  padding: 10px;
+  background-color: #30da0c;
+  z-index: 1;
+  font-size: 13px;
+  font-family: arial, sans-serif;
+  position: absolute;
+  top: 130px;
+  left: 25px;
+  border-radius: 15px;
+  box-shadow: 0 0 20px #003300 inset;
+}
+
+.Stats span {
+  font-weight: 600;
+}

@@ -6,12 +6,12 @@
 
 .Backdrop {
   width: 100vw;
-  min-height: 45vh;
+  min-height: 100vh;
   position: absolute;
   margin-top: calc(0% - 72px);
   left: 0;
-  background-color: rgba(23, 23, 23, .7);
-  z-index: 1;
+  background-color: rgba(23, 23, 23, .96);
+  z-index: 99;
 }
 
 .LdsRing {

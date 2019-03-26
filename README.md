@@ -1,4 +1,20 @@
-<h1>Pokédex_project</h1>
+<h1>Pokédex_project change_log</h1>
+
+<hr/>
+<h3><code>v1.6.81</code></h3>
+
+<p>Pokedex Detailed info is now rendering on the Pokedex Modal alike. On the SPA, Changed many aspecs (talking about the files structures and functions) such as:</p>
+
+<ol>
+  <li>Pokemons.js moved to components, since did not made much sense having it as container; has been moved to the same area as individual Pokemon.js file.</li>
+  <li>Pokedex.js has been splited in 2 different areas: PokedexData.js and Pokedex.js; Analizing if I need to split it more, due the extent of the JS file.</li>
+  <li>Main functions, calls and <code>Axios.get()</code> has been moved to App.js, the main file, due the logistical of this SPA Pokédex Project.</li>
+  <li>Addition to another <code>Axios.get()</code> for the pokédex, so it will render as it should, one specific pokémon.</li>
+</ol>
+
+<strong>Working on bugs:</strong>
+<p>UI: Yes, the pokedex it's fine with the style, but when the info populates, it doesn't ocupy the correct area, so, some changes shall be done soon, also talking about the pokémon IMG, it's not well positioned, neither sized properly; There will be an improvement.</p>
+
 
 <hr/>
 <h3><code>v1.6.0</code></h3>

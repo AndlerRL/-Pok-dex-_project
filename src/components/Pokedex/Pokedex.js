@@ -1,5 +1,6 @@
 import React from 'react';
 
+import PokedexData from './PokedexData/PokedexData';
 import css from './Pokedex.css'
 
 const pokedex = props => (
@@ -60,13 +61,13 @@ const pokedex = props => (
       </div>
     </div>
     <div className={css.Right}>
-      <div className={css.Stats}>
-        <span>Name :</span> {props.name} <br/>
-        <span>Type :</span> {props.type} <br/>
-        <span>Height :</span> {props.height} <br/>
-        <span>{props.descriptionTitle} :</span> {props.weight} lbs.<br/>
-        {props.descriptionBody} <br/>
-      </div>
+      <PokedexData 
+        name={props.name}
+        type={props.type} 
+        height={props.height}
+        weight={props.weight}
+        descriptionTitle={props.descriptionTitle}
+        descriptionBody={props.descriptionBody} />
       <div className={css.blueBtns1}>
         <div className={css.blueBtn}></div>
         <div className={css.blueBtn}></div>
@@ -85,8 +86,12 @@ const pokedex = props => (
       <div className={css.miniBtnGlass5}></div>
       <div className={css.barBtn3}></div>
       <div className={css.barBtn4}></div>
-      <div className={css.yellowBox1}></div>
-      <div className={css.yellowBox2}></div>
+      <div className={css.yellowBox1}>
+        <p>Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet.</p>
+      </div>
+      <div className={css.yellowBox2}>
+        <p>Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet.</p>
+      </div>
       <div className={css.bgCurve1_right}></div>
       <div className={css.bgCurve2_right}></div>
       <div className={css.curve1_right}></div>

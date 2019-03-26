@@ -19,6 +19,27 @@
   border-top: 1px solid rgba(56, 56, 56, .33);
 }
 
+.Error {
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+  justify-content: space-between;
+  text-align: center;
+  vertical-align: middle;
+  width: calc(50% + 75px);
+  margin: 0 auto;
+  height: 13rem;
+  padding: 16px;
+  border: 2px solid rgb(245, 245, 245);
+  border-radius: 3px;
+  background-color: rgb(234, 75, 67);
+  z-index: 99;
+}
+
+.Error p {
+  font-size: 1.75rem;
+}
+
 footer {
   position: absolute;
   margin: 5rem 0 0;
