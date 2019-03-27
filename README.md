@@ -1,5 +1,13 @@
 <h1>Pokédex_project change_log</h1>
 
+<h3><code>v1.7.90</code></h3>
+
+<p> A filter has been added to the project. For now it can lookup by pokémon name. Also the search bar has been moved to the filter area.</p>
+
+<strong>Working on bugs:</strong>
+<p>If there is no results, the list render the initial state of it, so... Seeing the the posibilities to find a way out of it.</p>
+
+<hr/>
 <h3><code>v1.7.0</code></h3>
 
 <p><strong>UI Bug fixed!</strong> Pokedex UI has been changed a bit in order to render well the pokémon info. All info has been positioned properly. Other minor UI fixes are done too. License is updated now.</p>

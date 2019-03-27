@@ -5,7 +5,9 @@ import _ from 'underscore';
 import Layout from '../Layout/Layout';
 import Modal from '../../components/UI/Modal/Modal';
 import Pokedex from '../../components/Pokedex/Pokedex';
+import SearchBar from '../../components/SearchBar/SearchBar';
 import Pokemons from '../../components/Pokemons/Pokemons';
+import Pokeball from '../../components/UI/Img/Pokeball/Pokeball';
 import Loader from '../../components/UI/Loader/Loader';
 import Icons from '../../components/UI/Icons/Icons';
 
@@ -14,6 +16,7 @@ import css from './App.css';
 class App extends Component {
   state = {
     onPokedex: false,
+    pokemonFilter: [],
     pokemons: [],
     pokedex: null,
     error: false,
@@ -23,6 +26,12 @@ class App extends Component {
 
   componentDidMount() {
     this.pokemonRenderHandler()
+  }
+
+  componentWillMount() {
+    this.setState({
+      pokemonFilter: this.state.pokemons
+    })
   }
 
   pokemonRenderHandler = () => {
@@ -172,6 +181,28 @@ class App extends Component {
     })
   }
 
+  searchPokemonHandler = e => {
+    let pokemonFilter = this.state.pokemons;
+
+    pokemonFilter = pokemonFilter.filter(pokemon => {
+      return pokemon.name.toLowerCase().search(
+        e.target.value.toLowerCase()
+      ) !== -1;
+    });
+
+    this.setState({
+      pokemonFilter: pokemonFilter
+    })
+  }
+
+  clearSearchHandler = e => {
+    document.querySelector('input[type="text"]').value = ''
+
+    this.setState({
+      pokemonFilter: []
+    })
+  }
+
   render() {
     let pokedex = null;
 
@@ -213,11 +244,24 @@ class App extends Component {
           pokedex={this.pokedexHandler} />
       )
 
+    let pokemonFilter = (
+      <Pokemons
+        pokemons={this.state.pokemonFilter}
+        pokedex={this.pokedexHandler} />
+    )
+
+    //const input = document.querySelector('input #searchP');
+
     return ( 
       <div className={css.App}>
         <Layout />
         <section className={css.Section2}>
-          FILTERS
+          <div className={css.SearchBar}>
+            <Pokeball className={css.Pokeball} />
+            <SearchBar 
+              clear={this.clearSearchHandler}
+              filter={this.searchPokemonHandler} />
+          </div>
         </section>
         <Modal 
           modalClosed={this.pokedexCloseHandler}
@@ -226,7 +270,11 @@ class App extends Component {
         </Modal>
         <Loader 
           show={this.state.isLoading} />
-        { pokemons }
+        { 
+          this.state.pokemonFilter.length ?
+          pokemonFilter :
+          pokemons
+        }
         <footer>
           <p> WebApp made with love and fun by <a target="_blank" rel="noopener noreferrer" href="http://andlerrl.co" className="black-text">AndlerRL</a>. 2019 ® All rights Reserved. Pokémon and Pokémon character names are trademarks of Nintendo.</p>
         </footer>

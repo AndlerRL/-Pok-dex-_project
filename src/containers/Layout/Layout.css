@@ -28,16 +28,6 @@ header > h1 {
   width: auto;
 }
 
-.SearchBar {
-  display: inline-flex;
-  height: 100%;
-}
-
-.SearchBar img {
-  height: 60%;
-  margin-top: 1rem;
-}
-
 body {
   background-color: rgba(56, 56, 56, 1);
 }

@@ -6,6 +6,7 @@
   display: inline-flex;
   align-items: center;
   vertical-align: middle;
+  transition: all cubic-bezier(0.165, 0.84, 0.44, 1) .33s;
 }
 
 .Search input {
@@ -24,26 +25,25 @@
 }
 
 .Search label {
-  margin: 20px 0  0 !important;
+  margin: 22px 0  0 !important;
   vertical-align: middle;
   z-index: 10;
 }
 
-.Search i {
-  display: inline-flex;
-  clear: both;
-  flex-wrap: wrap;
-  top: 0;
-  margin: 8px 0 0 -16px;
+.Search span {
+  display: flex;
+  height: 20px;
+  width: 20px;
+  box-sizing: border-box;
+  margin: 0 0 0 -16px;
   cursor: pointer;
-  opacity: .66;
-  vertical-align: middle;
+  opacity: .5;
   align-items: center;
-  height: 100%;
-  z-index: 12;
+  bottom: 0;
+  z-index: 90;
 }
 
-.Search i:hover {
-  color: rgb(245, 245, 245);
-  opacity: .9;
+.Search span:hover {
+  color: rgb(23, 23, 23);
+  opacity: 1;
 }
