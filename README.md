@@ -1,5 +1,10 @@
 <h1>Pokédex_project change_log</h1>
 
+<h3><code>v1.8.13</code></h3>
+
+<p>WebApp it's now 90% responsive! there's just one aspect to change, the pokédex. As you may see, when you open it with the device toolbar, it's closed by default; it will be changed and create a new pokédex (it's the same, but some custom CSS styling will disappear).</p>
+
+<hr/>
 <h3><code>v1.8.0</code></h3>
 
 <p><strong>Bug fixed!</strong> Now, the list will not re-rendered as the initial state, it has a new UX where tells that there's no match (err msg). The 'x' aside of the input it can be used to clear the input data.</p>

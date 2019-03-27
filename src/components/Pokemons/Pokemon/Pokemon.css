@@ -1,8 +1,8 @@
 .Pokemon {
   background-color: #bdbdbd;
   margin: 1rem auto !important;
-  height: 213px;
-  width: 172px;
+  height: 273px;
+  width: 232px;
   border-radius: 3px;
   display: inline-flex;
   box-sizing: border-box;
@@ -46,4 +46,11 @@
 
 .Pokemon>div {
   padding: 6px !important;
+}
+
+@media (min-width: 500px) {
+  .Pokemon {
+    height: 213px;
+    width: 172px;
+  }
 }

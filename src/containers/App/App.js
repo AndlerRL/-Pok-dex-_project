@@ -32,7 +32,7 @@ class App extends Component {
     Axios.get('pokemon/', {
       params: {
         offset: 0,
-        limit: 20
+        limit: 150
       }
     }).then(res1 => {
         const pokemons = res1.data.results;
@@ -57,9 +57,26 @@ class App extends Component {
 
           sortedImg = _.sortBy(newImg, img => {
             let nums = img.split('/');
-            let sortedNums = parseInt([nums[8][0], nums[8][1]].join(''));
+            let sortedNums = parseInt([nums[8][0], nums[8][1], nums[8][2]].join(''));
             return sortedNums;
           });
+          
+          if (sortedImg.length === 150)
+            console.log(sortedImg)
+          /**
+           * 
+           * 
+           * 
+           * NEW DATA BUG ISSUE!
+           * 
+           * The sorted imgs... the jump from 10 to 100...
+           * I need to use the 3 numbers and iterates it as it
+           * should... I spected this, so, I can work on it NOW!
+           * ASAP
+           * 
+           * 
+           * 
+           */
 
           newId = idArray.map(id => id).sort((a, z) => a - z);
         
@@ -72,7 +89,8 @@ class App extends Component {
             };
           })
 
-          if (newData.length === 20) {
+
+          if (newData.length === 150) {
             this.setState({
               pokemons: newData
             })
@@ -202,7 +220,7 @@ class App extends Component {
 
     if (this.state.pokedex !== null)
       pokedex = this.state.pokedex.map(pokedex => {
-        console.log(pokedex);
+        //console.log(pokedex);
         return (
           <Pokedex
             name={pokedex.name}
@@ -217,7 +235,7 @@ class App extends Component {
             evolvesFrom={pokedex.evolves_from}
             baseExp={pokedex.base_exp}
             generation={pokedex.generation}
-            key={Math.floor(Math.random(0) * 999999)} />
+            key={Math.floor(Math.random(0) * 9999999)} />
         )
       })
     else

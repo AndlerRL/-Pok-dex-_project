@@ -16,7 +16,7 @@ class Layout extends Component {
         </header>
         <section className={css.Section1}>
           <PokeballPixel height="100%" width="100%" />
-          <p>Can you lore them all? Search them by the PokéMon name! You can click to see the PokéDex.</p>
+          <p>Can you lore them all? Search them by the Pokémon name! Click the card to see the PokéDex.</p>
         </section>
       </Aux>
     );
