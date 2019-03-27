@@ -24,7 +24,8 @@ class SearchBar extends React.Component {
           <label
             htmlFor="searchP">Search Pokémon</label>
           <span onClick={this.props.clear}>
-            <Icons 
+            <Icons
+              type="fa" 
               icon="times" />
           </span>
         </div>

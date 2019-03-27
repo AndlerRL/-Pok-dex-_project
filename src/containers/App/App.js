@@ -16,7 +16,7 @@ import css from './App.css';
 class App extends Component {
   state = {
     onPokedex: false,
-    pokemonFilter: [],
+    pokemonFilter: null,
     pokemons: [],
     pokedex: null,
     error: false,
@@ -26,12 +26,6 @@ class App extends Component {
 
   componentDidMount() {
     this.pokemonRenderHandler()
-  }
-
-  componentWillMount() {
-    this.setState({
-      pokemonFilter: this.state.pokemons
-    })
   }
 
   pokemonRenderHandler = () => {
@@ -199,7 +193,7 @@ class App extends Component {
     document.querySelector('input[type="text"]').value = ''
 
     this.setState({
-      pokemonFilter: []
+      pokemonFilter: null
     })
   }
 
@@ -231,26 +225,57 @@ class App extends Component {
     
     let pokemons = (
       <div className={css.Error + ' z-depth-5'}>
-        <Icons icon="exclamation-triangle" size="small"/>
-        <p align="center"> Something went wrong... Sorry :(</p>
+        <Icons
+          type="fa"
+          icon="exclamation-triangle"
+          size="small"/>
+        <p align="center">
+          Something went wrong... sorry 
+          <Icons 
+            type="far"
+            icon="frown"
+            size="small"/>
+        </p>
         <code align="center">[Error] {this.state.errorMsg}</code>
       </div>
     );
 
-    if (!this.state.error)
-      pokemons = (
-        <Pokemons
-          pokemons={this.state.pokemons}
-          pokedex={this.pokedexHandler} />
-      )
+    if (!this.state.error) {
+      if (this.state.pokemonFilter === null) {
+        pokemons = (
+          <Pokemons
+            pokemons={this.state.pokemons}
+            pokedex={this.pokedexHandler} />
+        )
+      } else if (this.state.pokemonFilter !== null) {
+        pokemons = (
+          <Pokemons
+            pokemons={this.state.pokemonFilter}
+            pokedex={this.pokedexHandler} />
+        )
 
-    let pokemonFilter = (
-      <Pokemons
-        pokemons={this.state.pokemonFilter}
-        pokedex={this.pokedexHandler} />
-    )
-
-    //const input = document.querySelector('input #searchP');
+        if (this.state.pokemonFilter.length === 0) {
+          pokemons = (
+            <div className={css.Error + ' z-depth-5'}>
+              <span>
+                Whoops...
+                <Icons
+                  type="far"
+                  icon="grin-beam-sweat"
+                  size="small" />
+              </span>
+              <p>
+                There's no match for what you looking for... sorry 
+                <Icons 
+                  type="far"
+                  icon="frown"
+                  size="small"/>
+              </p>
+            </div>
+          )
+        }
+      }
+    }
 
     return ( 
       <div className={css.App}>
@@ -270,11 +295,7 @@ class App extends Component {
         </Modal>
         <Loader 
           show={this.state.isLoading} />
-        { 
-          this.state.pokemonFilter.length ?
-          pokemonFilter :
-          pokemons
-        }
+        { pokemons }
         <footer>
           <p> WebApp made with love and fun by <a target="_blank" rel="noopener noreferrer" href="http://andlerrl.co" className="black-text">AndlerRL</a>. 2019 ® All rights Reserved. Pokémon and Pokémon character names are trademarks of Nintendo.</p>
         </footer>

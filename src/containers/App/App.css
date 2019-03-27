@@ -38,17 +38,34 @@
   text-align: center;
   vertical-align: middle;
   width: calc(50% + 75px);
-  margin: 0 auto;
+  margin: 9.4rem auto;
   height: 13rem;
   padding: 16px;
-  border: 2px solid rgb(245, 245, 245);
-  border-radius: 3px;
+  border: 1px solid rgb(245, 245, 245);
+  border-radius: 2px;
   background-color: rgb(234, 75, 67);
   z-index: 99;
 }
 
+.Error span {
+  font-size: 1.6rem;
+  text-transform: uppercase;
+  margin: 0 auto;
+}
+
+.Error span > i {
+  margin: 0 1rem;
+  color: rgba(23, 23, 23, 1);
+}
+
 .Error p {
-  font-size: 1.75rem;
+  font-size: 1.45rem;
+  margin: auto;
+  width: 80%;
+}
+
+.Error p > i {
+  margin: 0 1rem
 }
 
 footer {

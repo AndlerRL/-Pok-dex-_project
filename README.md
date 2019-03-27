@@ -1,5 +1,13 @@
 <h1>Pokédex_project change_log</h1>
 
+<h3><code>v1.8.0</code></h3>
+
+<p><strong>Bug fixed!</strong> Now, the list will not re-rendered as the initial state, it has a new UX where tells that there's no match (err msg). The 'x' aside of the input it can be used to clear the input data.</p>
+
+<strong>Working next:</strong>
+<p>Well, there's not too much to add to the project, so, it can be considerable to add responsive UI/UX, but the most of the responsive aspects are practically done, just some fixes and also, the list! 20 pokémon are few for the pokédex.</p>
+
+<hr/>
 <h3><code>v1.7.90</code></h3>
 
 <p> A filter has been added to the project. For now it can lookup by pokémon name. Also the search bar has been moved to the filter area.</p>

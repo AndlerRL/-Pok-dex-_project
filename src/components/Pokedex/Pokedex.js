@@ -90,8 +90,9 @@ const pokedex = props => (
       <div className={css.barBtn4}></div>
       <div className={css.yellowBox1}>
         <p><span>Generation :</span> {props.generation}</p>
+        <p><span>Version Group :</span> {props.versionGrp}</p>
         <p><span>Evolves from :</span> {props.evolvesFrom}</p>
-        <p><span>Base Exp :</span> {props.baseExp}xp</p>
+        <p><span>Base Experience :</span> {props.baseExp}xp</p>
       </div>
       <div className={css.bgCurve1_right}></div>
       <div className={css.bgCurve2_right}></div>
