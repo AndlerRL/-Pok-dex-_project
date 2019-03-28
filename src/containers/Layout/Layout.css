@@ -1,0 +1,93 @@
+@font-face {
+  font-family: 'PokeFont';
+  src: url(../../assets/fonts/Pocket_Monk.woff);
+  src: url(../../assets/fonts/Pocket_Monk.otf);
+}
+
+header {
+  background-color: rgba(234, 75, 67, 1);
+  height: 72px;
+  padding: 0 16px;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-sizing: border-box;
+  z-index: 100;
+}
+
+header > h1 {
+  padding: 0;
+  margin: 0;
+  font-size: 3rem;
+  letter-spacing: 1px;
+  font-family: 'PokeFont';
+  width: auto;
+}
+
+body {
+  background-color: rgba(56, 56, 56, 1);
+}
+
+.Section1 {
+  background-color: rgba(245, 245, 245, 1);
+  width: 100%;
+  height: 12rem;
+  margin: 112px auto 0;
+  display: flex;
+  justify-content: space-between;
+  box-sizing: border-box;
+  left: 0;
+  font-size: 1.4rem;
+  font-family: 'PokeFont';
+}
+
+.Img {
+  background: url(../../assets/img/pokeballPixel.png) no-repeat;
+  background-position: 50% 0%;
+  background-size: 301px 108px;
+  transform: scale(.9);
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 72px;
+  opacity: .3 !important;
+}
+
+.Section1 > p {
+  width: 100%;
+  letter-spacing: 1px;
+  text-align: center;
+  vertical-align: middle;
+  margin: auto;
+  z-index: 1;
+}
+
+@media (min-width: 500px) {
+  header > h1 {
+    font-size: 3.8rem;
+    letter-spacing: 3px;
+  }
+
+  .Section1 {
+    height: 25rem;
+    margin: 112px auto 0;
+    left: 0;
+    font-size: 3rem;
+  }
+
+  .Img {
+    background-position: 50% 0%;
+    background-size: 678px 246px;
+    top: calc(50% - 432px);
+  }
+  
+  .Section1 > p {
+    width: 700px;
+    margin: auto;
+    letter-spacing: 2px;
+  }
+}

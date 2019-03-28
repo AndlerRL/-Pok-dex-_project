@@ -1,0 +1,66 @@
+.App {
+  margin: -2.8rem auto;
+  flex-grow: 0;
+  flex-shrink: 0;   
+  flex-basis: 25em;
+}
+
+.Error {
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+  justify-content: space-between;
+  text-align: center;
+  vertical-align: middle;
+  width: calc(50% + 75px);
+  margin: 4rem auto;
+  height: 13rem;
+  padding: 16px;
+  border: 1px solid rgb(245, 245, 245);
+  border-radius: 2px;
+  background-color: rgb(234, 75, 67);
+  z-index: 99;
+}
+
+.Error span {
+  font-size: 1.6rem;
+  text-transform: uppercase;
+  margin: 0 auto;
+}
+
+.Error span > i {
+  margin: 0 1rem;
+  color: rgba(23, 23, 23, 1);
+}
+
+.Error p {
+  font-size: 1.45rem;
+  margin: auto;
+  width: 80%;
+}
+
+.Error p > i {
+  margin: 0 1rem
+}
+
+footer {
+  position: absolute;
+  margin: 5rem 0 0;
+  left: 0;
+  background-color: rgba(234, 75, 67, 1);
+  width: 100%;
+  text-align: center;
+  color: rgba(245, 245, 245, 1);
+  z-index: 90;
+  padding: 16px;
+}
+
+footer > a {
+  color: rgba(56, 56, 56, 1) !important;
+}
+
+@media (min-width: 500px) {
+  .Error {
+    margin: 9.4rem auto;
+  }
+}

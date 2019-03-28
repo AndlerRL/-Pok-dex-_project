@@ -1,0 +1,10 @@
+.Pokeball {
+  background-color: transparent;
+  padding: 10px;
+  height: 100%;
+  box-sizing: border-box;
+}
+
+.Pokeball img {
+  height: 100%;
+}
