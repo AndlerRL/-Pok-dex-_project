@@ -1,6 +1,6 @@
 <h1>Pokédex_project</h1>
-
-<h2>How to run it:</h2>
+<br/>
+<h4>How to run it:</h4>
 
 <p>If you have NPM Package installed in your PC, there is some basic instructions, so follow it as it is:</p>
 <ul>
@@ -12,6 +12,7 @@
 
 <br/>
 <hr/>
+<br/>
 <h2>Change Log</h2>
 <br/>
 <h4><code>v1.9.0</code></h4>
