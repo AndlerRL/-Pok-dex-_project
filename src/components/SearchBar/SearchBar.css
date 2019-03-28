@@ -1,3 +1,28 @@
+.Section2 {
+  background-color: rgba(245, 245, 245, 1);
+  width: 100%;
+  display: inline-flex;
+  flex-direction: column;
+  box-sizing: border-box;
+  justify-content: space-between;
+  top: 0;
+  left: 0;
+  height: 4.75rem;
+  margin: 0 auto;
+  border-top: 1px solid rgba(56, 56, 56, .33);
+}
+
+.SearchBar {
+  display: inline-flex;
+  height: 100%;
+  margin: 0 auto;
+}
+
+.SearchBar img {
+  height: 50%;
+  margin-top: 1.2rem;
+}
+
 .Search {
   margin: 0 auto;
   width: 280px !important;
@@ -46,4 +71,15 @@
 .Search span:hover {
   color: rgb(23, 23, 23);
   opacity: 1;
+}
+
+@media (min-width: 500px) {
+  .Section2 {
+    height: 6rem;
+  }
+  
+  .SearchBar img {
+    height: 40%;
+    margin-top: 1.5rem;
+  }
 }

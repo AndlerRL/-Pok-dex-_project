@@ -1,14 +1,14 @@
 .Stats {
-  height: 150px;
-  width: 299px;
+  height: 100px;
+  width: 270px;
   padding: 16px;
   background-color: #30da0c;
   z-index: 1;
   font-size: 13px;
   font-family: arial, sans-serif;
   position: absolute;
-  top: 130px;
-  left: 25px;
+  top: 310px;
+  left: calc(50% - 160px);
   border-radius: 15px;
   box-shadow: 0 0 20px #003300 inset;
   overflow-y: auto;
@@ -25,4 +25,13 @@
 
 .Stats ul {
   margin-bottom: 8px;
+}
+
+@media (min-width: 600px) {
+  .Stats {
+    height: 150px;
+    width: 299px;
+    top: 130px;
+    left: 25px;
+  }
 }

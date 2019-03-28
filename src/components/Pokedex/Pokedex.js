@@ -1,12 +1,13 @@
 import React from 'react';
 
 import PokedexData from './PokedexData/PokedexData';
+import PokedexData2 from './PokedexData/PokedexData2/PokedexData2';
+
 import css from './Pokedex.css'
 
 const pokedex = props => (
   <div className={css.Pokedex}>
     <div className={css.Left}>
-      <div className={css.Logo}></div>
       <div className={css.bgCurve1_left}></div>
       <div className={css.bgCurve2_left}></div>
       <div className={css.curve1_left}>
@@ -88,12 +89,11 @@ const pokedex = props => (
       <div className={css.miniBtnGlass5}></div>
       <div className={css.barBtn3}></div>
       <div className={css.barBtn4}></div>
-      <div className={css.yellowBox1}>
-        <p><span>Generation :</span> {props.generation}</p>
-        <p><span>Version Group :</span> {props.versionGrp}</p>
-        <p><span>Evolves from :</span> {props.evolvesFrom}</p>
-        <p><span>Base Experience :</span> {props.baseExp}xp</p>
-      </div>
+        <PokedexData2 
+          generation={props.generation}
+          versionGrp={props.versionGrp}
+          evolvesFrom={props.evolvesFrom}
+          baseExp={props.baseExp} />
       <div className={css.bgCurve1_right}></div>
       <div className={css.bgCurve2_right}></div>
       <div className={css.curve1_right}></div>

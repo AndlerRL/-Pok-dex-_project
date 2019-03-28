@@ -17,7 +17,7 @@ class Pokemons extends Component {
           name={pokemon.name}
           frontImg={pokemon.frontImg}
           id={pokemon.id}
-          key={`POKEMON__${createHash('sha1').update(`pokeCard${Math.floor(Math.random(1) * 9999999)}`).digest('hex')}__CARD`}
+          key={`POKEMON__${createHash('sha1').update(`pokeCard${Math.floor(Math.random(0) * 99999999)}`).digest('hex')}.${pokemon.id}__CARD`}
           pokedex={e => this.props.pokedex(e, pokemon.id)} />
       );
     });

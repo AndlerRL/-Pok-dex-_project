@@ -7,7 +7,6 @@ import Modal from '../../components/UI/Modal/Modal';
 import Pokedex from '../../components/Pokedex/Pokedex';
 import SearchBar from '../../components/SearchBar/SearchBar';
 import Pokemons from '../../components/Pokemons/Pokemons';
-import Pokeball from '../../components/UI/Img/Pokeball/Pokeball';
 import Loader from '../../components/UI/Loader/Loader';
 import Icons from '../../components/UI/Icons/Icons';
 
@@ -32,9 +31,10 @@ class App extends Component {
     Axios.get('pokemon/', {
       params: {
         offset: 0,
-        limit: 150
+        limit: 151
       }
     }).then(res1 => {
+        //console.log(res1.data.results);
         const pokemons = res1.data.results;
         const updatedPokemon = [...pokemons];
         const imgArray = [];
@@ -60,23 +60,6 @@ class App extends Component {
             let sortedNums = parseInt([nums[8][0], nums[8][1], nums[8][2]].join(''));
             return sortedNums;
           });
-          
-          if (sortedImg.length === 150)
-            console.log(sortedImg)
-          /**
-           * 
-           * 
-           * 
-           * NEW DATA BUG ISSUE!
-           * 
-           * The sorted imgs... the jump from 10 to 100...
-           * I need to use the 3 numbers and iterates it as it
-           * should... I spected this, so, I can work on it NOW!
-           * ASAP
-           * 
-           * 
-           * 
-           */
 
           newId = idArray.map(id => id).sort((a, z) => a - z);
         
@@ -90,17 +73,16 @@ class App extends Component {
           })
 
 
-          if (newData.length === 150) {
+          if (newData.length === 151) {
             this.setState({
               pokemons: newData
             })
           }
 
-          setTimeout(() => {
+          if (sortedImg.length === 151)
             this.setState({
               isLoading: false
             })
-          }, 1000)
         })
       })
     .catch(err => {
@@ -148,11 +130,20 @@ class App extends Component {
         const generation = pokedex2.generation.name;
         const habitat = pokedex2.habitat.name;
         const genera = pokedex2.genera[2].genus;
-        const flavorText = pokedex2.flavor_text_entries[1].flavor_text;
         const eggGrp = pokedex2.egg_groups.map(res => {
           return res.name
         });
+        let versionGrp = '';
+        let flavorText = '';
         let evolvesFrom = '';
+
+        if (pokedex2.flavor_text_entries[1].language.name === 'en') {
+          flavorText = pokedex2.flavor_text_entries[1].flavor_text;
+          versionGrp = pokedex2.flavor_text_entries[1].version.name;
+        } else {
+          flavorText = pokedex2.flavor_text_entries[2].flavor_text;
+          versionGrp = pokedex2.flavor_text_entries[2].version.name;
+        }
 
         pokedex2.evolves_from_species ?
           evolvesFrom = pokedex2.evolves_from_species.name :
@@ -165,7 +156,8 @@ class App extends Component {
           title_description: genera,
           description: flavorText,
           egg_grp: eggGrp,
-          evolves_from: evolvesFrom
+          evolves_from: evolvesFrom,
+          version_grp: versionGrp
         }
 
         pokedexInfo.push(detailedInfo);
@@ -235,7 +227,8 @@ class App extends Component {
             evolvesFrom={pokedex.evolves_from}
             baseExp={pokedex.base_exp}
             generation={pokedex.generation}
-            key={Math.floor(Math.random(0) * 9999999)} />
+            versionGrp={pokedex.version_grp}
+            key={`${pokedex.name}'__'${Math.floor(Math.random(0) * 9999999)}`} />
         )
       })
     else
@@ -298,14 +291,9 @@ class App extends Component {
     return ( 
       <div className={css.App}>
         <Layout />
-        <section className={css.Section2}>
-          <div className={css.SearchBar}>
-            <Pokeball className={css.Pokeball} />
-            <SearchBar 
-              clear={this.clearSearchHandler}
-              filter={this.searchPokemonHandler} />
-          </div>
-        </section>
+        <SearchBar 
+          clear={this.clearSearchHandler}
+          filter={this.searchPokemonHandler} />
         <Modal 
           modalClosed={this.pokedexCloseHandler}
           show={this.state.onPokedex}>
