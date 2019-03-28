@@ -2,7 +2,7 @@
 
 <h2>How to run it:</h2>
 
-<p>There is some basic instructions, so follow it as it is:</p>
+<p>If you have NPM Package installed in your PC, there is some basic instructions, so follow it as it is:</p>
 <ul>
   <li>Open the Terminal and go to the main folder of the project <code>./'pokedex_project'</code>.</li>
   <li>On terminal, type <code>npm install --S</code> the line '--S' it's optional.</li>
