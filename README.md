@@ -1,4 +1,5 @@
 <h1>Pokédex_project</h1>
+<h2>Site URL https://pokedex-lore.netlify.com</h2>
 <br/>
 <h4>How to run it:</h4>
 
