@@ -1,9 +1,8 @@
 import { createHash } from 'crypto';
 import React, { Component } from 'react';
+import { Flex } from 'rebass';
 
 import Pokemon from './Pokemon/Pokemon';
-
-import css from './Pokemons.css';
 
 class Pokemons extends Component {
   state = {
@@ -23,11 +22,14 @@ class Pokemons extends Component {
     });
 
     return (
-      <main className={css.Pokemons}>
-        <ul>
-          { pokemons }
-        </ul>
-      </main>
+      <Flex flexWrap="wrap"
+        alignItems="flex-start"
+        justifyContent="flex-start"
+        width={1}
+        py={5}
+        ml={[0, 2 / 12, 2 / 12, 1 / 12]}>
+        { pokemons }
+      </Flex>
     );
   }
 };

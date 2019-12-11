@@ -1,6 +1,8 @@
 import Axios from 'axios';
 import React, { Component } from 'react';
 import _ from 'underscore';
+import InfiniteScroll from 'react-infinite-scroll-component';
+import { Flex, Text } from 'rebass';
 
 import Layout from '../Layout/Layout';
 import Modal from '../../components/UI/Modal/Modal';
@@ -20,77 +22,87 @@ class App extends Component {
     pokedex: null,
     error: false,
     errorMsg: null,
-    isLoading: true
+    isLoading: true,
+    hasMore: true,
+    showBackToTop: false
   }
 
   componentDidMount() {
     this.pokemonRenderHandler()
+
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > window.innerHeight)
+        this.setState({
+          showBackToTop: true
+        })
+      else if (window.scrollY < window.innerHeight)
+      this.setState({
+        showBackToTop: false
+      })
+    })
   }
 
   pokemonRenderHandler = () => {
-    Axios.get('pokemon/', {
-      params: {
-        offset: 0,
-        limit: 151
-      }
-    }).then(res1 => {
+    if (this.state.pokemons.length >= 151) {
+      this.setState({
+        hasMore: false,
+      })
+
+      return;
+    }
+    const res1 = Axios.get(`pokemon/?limit=15&offset=${this.state.pokemons.length || 0}`)
+    
+    res1.then(res1 => {
         //console.log(res1.data.results);
         const pokemons = res1.data.results;
-        const updatedPokemon = [...pokemons];
         const imgArray = [];
         const idArray = [];
 
         pokemons.map(async pokemon => {
           const pokemonUrl = pokemon.url;
           const res2 = await Axios.get(pokemonUrl);
-          const id = res2.data.id;
-          const frontImg = res2.data.sprites.front_default;
+          if (pokemon.name === res2.data.species.name) {
+            idArray.push(res2.data.id);
+            imgArray.push(res2.data.sprites.front_default);
+          }
 
-          imgArray.push(frontImg);
-          idArray.push(id);
+          idArray.sort((a, b) => a > b ? 1 : -1)
 
           let newImg = [];
-          let newId = [];
           let sortedImg = [];
-
+          
           newImg = imgArray.map(img => img);
-
+          
           sortedImg = _.sortBy(newImg, img => {
             let nums = img.split('/');
             let sortedNums = parseInt([nums[8][0], nums[8][1], nums[8][2]].join(''));
             return sortedNums;
           });
 
-          newId = idArray.map(id => id).sort((a, z) => a - z);
-        
-          const newData = updatedPokemon.map((pokemon, index) => {
+          const newData = pokemons.map((pokemon, index) => {
             return {
               name: pokemon.name,
               url: pokemon.url,
               frontImg: sortedImg[index],
-              id: newId[index]
+              id: idArray[index]
             };
           })
 
-
-          if (newData.length === 151) {
-            this.setState({
-              pokemons: newData
-            })
-          }
-
-          if (sortedImg.length === 151)
-            this.setState({
+          if (sortedImg.length === 15 && newData.length === 15)
+          this.setState(prevState => {
+            return {
+              pokemons: [ ...prevState.pokemons, ...newData],
               isLoading: false
-            })
+            }
+          })
         })
       })
-    .catch(err => {
-      this.setState({
-        error: true,
-        errorMsg: err.toString()
-      })
-    });
+      .catch(err => {
+        this.setState({
+          error: true,
+          errorMsg: err.toString()
+        })
+      });
   }
 
   pokedexHandler = (e, id) => {
@@ -106,7 +118,7 @@ class App extends Component {
     }
     const pokemons = [...this.state.pokemons];
     pokemons[pokemonIndex] = pokemon;
-    
+
     Axios.get(pokemon.url).then(res => {
       //console.log(res.data);
       const pokedex = res.data;
@@ -166,9 +178,6 @@ class App extends Component {
           pokedex: pokedexInfo,
           isLoading: false
         })
-    
-        //console.log(this.state.pokedex)
-        //console.log(pokedexInfo)
       })
     }).catch(err => {
       this.setState({
@@ -195,7 +204,8 @@ class App extends Component {
     });
 
     this.setState({
-      pokemonFilter: pokemonFilter
+      pokemonFilter: pokemonFilter,
+      hasMore: false
     })
   }
 
@@ -203,8 +213,17 @@ class App extends Component {
     document.querySelector('input[type="text"]').value = ''
 
     this.setState({
-      pokemonFilter: null
+      pokemonFilter: null,
+      hasMore: true
     })
+  }
+
+  backToTopHandler = () => {
+    window.scroll({
+      left: 0,
+      top: 0,
+      behavior: "smooth"
+    });
   }
 
   render() {
@@ -212,9 +231,8 @@ class App extends Component {
 
     if (this.state.pokedex !== null)
       pokedex = this.state.pokedex.map(pokedex => {
-        //console.log(pokedex);
-        return (
-          <Pokedex
+        return ( 
+          <Pokedex 
             name={pokedex.name}
             frontImg={pokedex.front_img}
             type={pokedex.type.join(', ')}
@@ -233,55 +251,54 @@ class App extends Component {
       })
     else
       pokedex = null;
-    
-    let pokemons = (
-      <div className={css.Error + ' z-depth-5'}>
-        <Icons
-          type="fa"
-          icon="exclamation-triangle"
-          size="small"/>
-        <p align="center">
-          Something went wrong... sorry 
-          <Icons 
-            type="far"
-            icon="frown"
-            size="small"/>
-        </p>
-        <code align="center">[Error] {this.state.errorMsg}</code>
+
+    let pokemons = ( <div className={css.Error + ' z-depth-5'}>
+      <Icons 
+        type="fa"
+        icon="exclamation-triangle"
+        size="small" />
+      <p align="center">
+        Something went wrong...sorry
+        <Icons 
+          type="far"
+          icon="frown"
+          size="small" />
+      </p>
+      <code align="center"> 
+        [Error] {this.state.errorMsg} </code>
       </div>
     );
 
     if (!this.state.error) {
       if (this.state.pokemonFilter === null) {
         pokemons = (
-          <Pokemons
+          <Pokemons 
             pokemons={this.state.pokemons}
             pokedex={this.pokedexHandler} />
         )
       } else if (this.state.pokemonFilter !== null) {
-        pokemons = (
-          <Pokemons
+        pokemons = ( 
+          <Pokemons 
             pokemons={this.state.pokemonFilter}
             pokedex={this.pokedexHandler} />
         )
 
         if (this.state.pokemonFilter.length === 0) {
-          pokemons = (
+          pokemons = ( 
             <div className={css.Error + ' z-depth-5'}>
               <span>
-                Whoops...
-                <Icons
-                  type="far"
-                  icon="grin-beam-sweat"
-                  size="small" />
-              </span>
+              Whoops...
+              <Icons type="far"
+                icon="grin-beam-sweat"
+              size = "small" />
+              </span> 
               <p>
-                There's no match for what you looking for... sorry 
-                <Icons 
-                  type="far"
-                  icon="frown"
-                  size="small"/>
-              </p>
+                There 's no match for what you looking for... sorry 
+              <Icons 
+                type="far"
+                icon="frown"
+                size="small" />
+              </p> 
             </div>
           )
         }
@@ -290,24 +307,66 @@ class App extends Component {
 
     return ( 
       <div className={css.App}>
-        <Layout />
+        <Layout>
         <SearchBar 
           clear={this.clearSearchHandler}
-          filter={this.searchPokemonHandler} />
+          filter={this.searchPokemonHandler} /> 
         <Modal 
           modalClosed={this.pokedexCloseHandler}
-          show={this.state.onPokedex}>
-          { pokedex }
+          show={this.state.onPokedex}> 
+          {pokedex}
         </Modal>
-        <Loader 
-          show={this.state.isLoading} />
-        { pokemons }
-        <footer>
-          <p> WebApp made with love and fun by <a target="_blank" rel="noopener noreferrer" href="http://andlerrl.co" className="black-text">AndlerRL</a>. 2019 ® All rights Reserved. Pokémon and Pokémon character names are trademarks of Nintendo.</p>
-        </footer>
+        {/* <Loader show={this.state.isLoading} backdrop />  */}
+        <main className={css.Pokemons}>
+          <InfiniteScroll 
+            dataLength={(this.state.pokemonFilter && this.state.pokemonFilter.length) || this.state.pokemons.length}
+            next={this.pokemonRenderHandler}
+            hasMore={this.state.hasMore}
+            loader={
+              <Flex
+                alignItems="center"
+                justifyContent="center"
+                style={{ position: 'relative', margin: '0 auto', height: 176, width: 176 }}>
+                <Loader show={this.state.hasMore || this.state.isLoading} loader />
+              </Flex>
+            }
+            className={css.InfiniteScroll}
+            style={{ overflow: 'none' }}
+            endMessage={
+              this.state.pokemons.length >= 160 ? 
+                <Flex
+                  flexDirection="column"
+                  justifyContent="flex-start"
+                  alignItems="center"
+                  width={1}>
+                  <Text as="h3" letterSpacing={2} color="#f5f5f5" my={3} fontWeight="100">
+                    YOU FOUND THEM ALL!
+                  </Text>  
+                  <Text as="h5" letterSpacing={2} color="#f5f5f5" my={3} fontWeight="300">
+                    TOTAL OF: { this.state.pokemons.length }
+                  </Text>
+                </Flex>
+              : null
+            }>
+            {pokemons}
+          </InfiniteScroll>
+          <div 
+            className={css.BackToTop}
+            onClick={this.backToTopHandler}
+            style={{ 
+              opacity: this.state.showBackToTop ? 1 : 0,
+              zIndex: this.state.showBackToTop ? 99 : -1,
+            }}>
+            <Icons 
+              type="far"
+              icon="hand-point-up"
+              size="small" />
+          </div>
+        </main> 
+        </Layout> 
       </div>
     );
   }
 }
 
-export default React.memo(App);
+  export default React.memo(App);
