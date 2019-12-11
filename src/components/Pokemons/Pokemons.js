@@ -26,7 +26,8 @@ class Pokemons extends Component {
         alignItems="flex-start"
         justifyContent="flex-start"
         width={1}
-        py={5}>
+        py={5}
+        ml={[0, 2 / 12, 2 / 12, 1 / 12]}>
         { pokemons }
       </Flex>
     );

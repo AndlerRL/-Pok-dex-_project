@@ -45,8 +45,11 @@
 
 .Pokemons {
   width: 83.333%;
+  max-width: 1300px !important;
   margin: 0 auto 18rem;
   display: flex;
+  align-items: center;
+  justify-content: center;
   overflow: none !important;
 }
 

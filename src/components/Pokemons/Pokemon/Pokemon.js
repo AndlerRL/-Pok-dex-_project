@@ -1,11 +1,12 @@
 import React from 'react';
+import { Box } from 'rebass';
 
 import PokemonImg from './PokemonImg/PokemonImg';
 import css from './Pokemon.css';
 
 const pokemon = props => {
   return (
-    <li 
+    <Box
       className={"card sticky-action z-depth-2 " + css.Pokemon}
       onClick={props.pokedex}
       id={props.id}>
@@ -16,7 +17,7 @@ const pokemon = props => {
         {props.name}
       </p>
       
-    </li>
+    </Box>
   )
 }
 
