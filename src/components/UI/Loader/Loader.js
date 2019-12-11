@@ -6,16 +6,22 @@ import css from './Loader.css';
 
 const loader = props => (
   <Aux>
-    <div
-      className={css.Backdrop}
-      style={{
-        display: props.show ? 'initial' : 'none'
-      }}>
-    </div>
+    { props.backdrop ?
+      <div
+        className={css.Backdrop}
+        style={{
+          opacity: props.show ? 1 : 0,
+          display: props.show ? 'initial' : 'none',
+        }}>
+      </div>
+      : null
+    }
     <div 
       className={css.LdsRing}
       style={{
-        display: props.show ? 'block' : 'none'
+        opacity: props.show ? 1 : 0,
+        display: props.show ? 'initial' : 'none',
+        marginTop: props.loader ? '2.88888%' : null
       }}>
       <Pokeball />
       <div></div>

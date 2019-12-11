@@ -16,13 +16,13 @@
 
 .LdsRing {
   display: flex;
-  position: fixed;
-  vertical-align: middle;
+  position: absolute;
   align-items: center;
+  justify-content: flex-start;
   transform: scale(2.3);
-  margin-left: calc(50% - 75px);
-  margin-top: 16.666%;
-  z-index: 99;
+  margin: 16.666% auto 0;
+  left: calc(50% - 75px);
+  z-index: 100;
   cursor: not-allowed;
 }
 
