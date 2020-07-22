@@ -1,8 +1,8 @@
 import React from 'react';
 
-import css from './PokemonImg.css';
+import css from '../../../../css/PokemonImg.css';
 
-const pokemonImg = props => (
+const pokemonImg = (props: { height: string; width: string; frontImg: string; }) => (
   <div
     className={"waves-effect waves-light " + css.PokemonImg}
     style={{height: props.height, width: props.width}}>

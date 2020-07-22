@@ -1,9 +1,9 @@
 import React from 'react';
 
 import pokeballImg from '../../../../assets/img/pokeball.png';
-import css from './Pokeball.css';
+import css from '../../../../css/Pokeball.css';
 
-const pokeball = props => (
+const pokeball = (props: { height: string, width: string }) => (
   <div
     className={css.Pokeball}
     style={{height: props.height, width: props.width}}>

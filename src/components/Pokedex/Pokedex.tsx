@@ -3,9 +3,24 @@ import React from 'react';
 import PokedexData from './PokedexData/PokedexData';
 import PokedexData2 from './PokedexData/PokedexData2/PokedexData2';
 
-import css from './Pokedex.css'
+import css from '../../css/Pokedex.css'
 
-const pokedex = props => (
+const pokedex = ({
+  name,
+  type,
+  frontImg,
+  heightImg,
+  eggGrp,
+  height,
+  weight,
+  habitat,
+  descriptionTitle,
+  descriptionBody,
+  generation,
+  versionGrp,
+  evolvesFrom,
+  baseExp,
+}) => (
   <div className={css.Pokedex}>
     <div className={css.Left}>
       <div className={css.bgCurve1_left}></div>
@@ -30,7 +45,7 @@ const pokedex = props => (
           <div className={css.btnTopImg2}></div>
         </div>
         <div className={css.Img}>
-          <img src={props.frontImg} alt="Pokemon_Front_Default" height={props.heightImg} />
+          <img src={frontImg} alt="Pokemon_Front_Default" height={heightImg} />
         </div>
         <div className={css.btnBottomImg}></div>
         <div className={css.Speakers}>
@@ -63,14 +78,14 @@ const pokedex = props => (
     </div>
     <div className={css.Right}>
       <PokedexData 
-        name={props.name}
-        type={props.type}
-        eggGrp={props.eggGrp}
-        height={props.height}
-        weight={props.weight}
-        habitat={props.habitat}
-        descriptionTitle={props.descriptionTitle}
-        descriptionBody={props.descriptionBody} />
+        name={name}
+        type={type}
+        eggGrp={eggGrp}
+        height={height}
+        weight={weight}
+        habitat={habitat}
+        descriptionTitle={descriptionTitle}
+        descriptionBody={descriptionBody} />
       <div className={css.blueBtns1}>
         <div className={css.blueBtn}></div>
         <div className={css.blueBtn}></div>
@@ -90,10 +105,10 @@ const pokedex = props => (
       <div className={css.barBtn3}></div>
       <div className={css.barBtn4}></div>
         <PokedexData2 
-          generation={props.generation}
-          versionGrp={props.versionGrp}
-          evolvesFrom={props.evolvesFrom}
-          baseExp={props.baseExp} />
+          generation={generation}
+          versionGrp={versionGrp}
+          evolvesFrom={evolvesFrom}
+          baseExp={baseExp} />
       <div className={css.bgCurve1_right}></div>
       <div className={css.bgCurve2_right}></div>
       <div className={css.curve1_right}></div>

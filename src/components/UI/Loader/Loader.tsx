@@ -1,11 +1,10 @@
 import React from 'react';
 
 import Pokeball from '../Img/Pokeball/Pokeball';
-import Aux from '../../../hoc/Aux/Aux';
-import css from './Loader.css';
+import css from '../../../css/Loader.css';
 
-const loader = props => (
-  <Aux>
+const loader = (props: { backdrop: boolean | null; show: boolean; loader: boolean  }) => (
+  <React.Fragment>
     { props.backdrop ?
       <div
         className={css.Backdrop}
@@ -30,7 +29,7 @@ const loader = props => (
       <div></div>
       <span>loading pokédex</span>
     </div>
-  </Aux>
+  </React.Fragment>
 );
 
 export default loader;

@@ -1,9 +1,9 @@
 import React from 'react';
 
 import pikachuImg from '../../../../assets/img/pikachu.png';
-import css from './Pikachu.css';
+import css from '../../../../css/Pikachu.css';
 
-const pikachu = props => (
+const pikachu = (props: { height: string; width: string }) => (
   <div
     className={css.Pikachu}
     style={{height: props.height, width: props.width}}>
